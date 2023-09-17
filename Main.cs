@@ -16,7 +16,7 @@ namespace ImageCover
         public override string DisplayName => "Image Cover";
         public override string Author => "AstarLC";
         public override string Description => "A simple mod to place custom image to the build scene";
-        public override string ModVersion => "v0.1";
+        public override string ModVersion => "v1.0.0";
         public override string MinimumGameVersionNecessary => "1.5.9.8";
 
         public static Sprite imageSprite;
