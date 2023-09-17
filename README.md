@@ -1,7 +1,7 @@
 # Image Cover Mod
 A mod to load image into build scene.
 
-# How to set image?
+# How to add a image?
 ## First: Create Images folder in Mod folder
 ![GPONN~VY KP42L9 KAMZ40](https://github.com/AstarLC4036/ImageCoverMod/assets/126248249/d9361cbb-bbd7-44c5-a29d-8a819fbc9102)
 
