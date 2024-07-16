@@ -10,7 +10,7 @@ namespace ImageCover.UI
         public GameObject windowHolder;
         public readonly int windowID = Builder.GetRandomID();
         public Window window;
-        public RectInt windowRect = new RectInt(0, 0, 700, 250 + Main.imageSprites.Count * 70);
+        public RectInt windowRect = new RectInt(0, 0, 700, 250 + Main.imageSprites.Count * 50);
         public Main main;
 
         public ModUI(Main mainClass)
@@ -59,7 +59,7 @@ namespace ImageCover.UI
             Builder.CreateButton(window, 600, 50, 0, 0, () => {
                 main.LoadImages(); 
                 GameObject.Destroy(windowHolder);
-                windowRect = new RectInt(0, 0, 700, 250 + Main.imageSprites.Count * 70);
+                windowRect = new RectInt(0, 0, 700, 250 + Main.imageSprites.Count * 50);
                 ShowGUI(); 
             }, "Reload Images");
 
