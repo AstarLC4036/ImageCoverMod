@@ -32,8 +32,8 @@ namespace ImageCover
 
         public override void Load()
         {
-            modMainUI = new ModUI(this);
             LoadImages();
+            modMainUI = new ModUI(this);
 
             SceneHelper.OnBuildSceneLoaded += () =>
             {
