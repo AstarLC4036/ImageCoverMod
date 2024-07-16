@@ -14,6 +14,6 @@ namespace ImageCoverMod
     public class ICModSettings
     {
         //TODO: Multi-images Support
-        public static int maxImages = 1;
+        public static int maxImages = 5;
     }
 }

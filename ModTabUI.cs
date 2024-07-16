@@ -8,16 +8,16 @@ namespace ImageCover.UI
     public class ModTabGUI : MonoBehaviour
     {
         //TabMenuGUI Window
-        public static GameObject tabWindowHolder;
-        public static readonly int tabWindowID = Builder.GetRandomID();
-        public static Window tabWindow;
-        public static RectInt tabWindowRect = new RectInt(0, 0, 800, 760);
+        public GameObject tabWindowHolder;
+        public readonly int tabWindowID = Builder.GetRandomID();
+        public Window tabWindow;
+        public RectInt tabWindowRect = new RectInt(0, 0, 800, 760);
 
         //TabMenuGUI Var
-        public static GameObject imageObject;
-        public static DraggableImage draggableImageComp;
-        public static SpriteRenderer imgSr;
-        private static bool tabExist = false;
+        public GameObject imageObject;
+        public DraggableImage draggableImageComp;
+        public SpriteRenderer imgSr;
+        private bool tabExist = false;
 
         void Start()
         {
@@ -26,31 +26,27 @@ namespace ImageCover.UI
             imgSr = gameObject.GetComponent<SpriteRenderer>();
         }
 
-        void Update()
+        public void Show()
         {
-            if(draggableImageComp.startEditProp)
+            if (!tabExist)
             {
-                draggableImageComp.startEditProp = false;
-                if(!tabExist)
+                ShowTabGUI();
+            }
+            else
+            {
+                try
+                {
+                    tabWindowHolder.SetActive(true);
+                }
+                catch (NullReferenceException)
                 {
                     ShowTabGUI();
-                }
-                else
-                {
-                    try
-                    {
-                        tabWindowHolder.SetActive(true);
-                    }
-                    catch (NullReferenceException)
-                    {
-                        ShowTabGUI();
-                    }
                 }
             }
         }
 
         //show tab menu
-        public static void ShowTabGUI()
+        public void ShowTabGUI()
         {
             tabWindowHolder = Builder.CreateHolder(Builder.SceneToAttach.CurrentScene, "ICMEditTab" + tabWindowID);
             tabWindow = Builder.CreateWindow(tabWindowHolder.transform, tabWindowID, tabWindowRect.width, tabWindowRect.height, tabWindowRect.x, tabWindowRect.y, true, true, 0.9f, "[ICM]Edit Image");
@@ -74,7 +70,7 @@ namespace ImageCover.UI
         }
 
         //Destroy tab(Delete Image)
-        public static void DeleteBehavior()
+        public void DeleteBehavior()
         {
             //复用去他妈，快乐你我他。
             Destroy(imageObject);
@@ -84,14 +80,14 @@ namespace ImageCover.UI
         }
 
         //Close tab
-        public static void CloseTab()
+        public void CloseTab()
         {
             tabWindowHolder.SetActive(false);
             draggableImageComp.editing = false;
         }
 
         //On draggable(bool) change
-        public static void OnToggleMoveChange()
+        public void OnToggleMoveChange()
         {
             draggableImageComp.draggable = !draggableImageComp.draggable;
             draggableImageComp.editing = false;
@@ -127,31 +123,31 @@ namespace ImageCover.UI
             return result;
         }
 
-        public static void OnTransparencyChange(string arg)
+        public void OnTransparencyChange(string arg)
         {
             float transparency = Str2Float(arg, 0);
             imgSr.color = new Color(imgSr.color.r, imgSr.color.g, imgSr.color.b, 1 - transparency);
         }
 
-        public static void OnHeightScaleChange(string arg)
+        public void OnHeightScaleChange(string arg)
         {
             float heightScale = Str2Float(arg, 1);
             imageObject.transform.localScale = new Vector3(imageObject.transform.localScale.x, heightScale);
         }
 
-        public static void OnWidthScaleChange(string arg)
+        public void OnWidthScaleChange(string arg)
         {
             float widthScale = Str2Float(arg, 1);
             imageObject.transform.localScale = new Vector3(widthScale, imageObject.transform.localScale.y);
         }
 
-        public static void OnRoatationChange(string arg)
+        public void OnRoatationChange(string arg)
         {
             float rotation = Str2Float(arg, 0);
             imageObject.transform.localEulerAngles = new Vector3(imageObject.transform.localEulerAngles.x, imageObject.transform.localEulerAngles.y, rotation);
         }
 
-        public static void OnSortingOdrChange(string arg)
+        public void OnSortingOdrChange(string arg)
         {
             int sortingOdr = Str2Int32(arg, 0);
             imgSr.sortingOrder = sortingOdr;

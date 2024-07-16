@@ -1,5 +1,6 @@
 ﻿using ImageCoverMod;
 using SFS.Builds;
+using SFS.Tutorials;
 using System.Collections;
 using UnityEngine;
 
@@ -12,10 +13,10 @@ namespace ImageCover
         public bool editing = false;
         public bool startEditProp = false;
         public bool draggable = true;
-        private bool startEdit = false;
-        private Vector2 dPosMouse = Vector2.zero;
+        private UI.ModTabGUI tabGUI;
+        private Vector2 originMousePos = Vector2.zero;
 
-        bool touchable(Vector2 posA, Vector2 posB, Rect rect)
+        bool Touchable(Vector2 posA, Vector2 posB, Rect rect)
         {
             //Cov rect pixels to unity unit size
             //1000 pixels => 1 unit
@@ -30,7 +31,7 @@ namespace ImageCover
         void Start()
         {
             imageRect = new Rect(originImageRect.position, originImageRect.size);
-            gameObject.AddComponent<UI.ModTabGUI>();
+            tabGUI = gameObject.AddComponent<UI.ModTabGUI>();
         }
 
         // Update is called once per frame
@@ -40,32 +41,25 @@ namespace ImageCover
             imageRect.height = originImageRect.height * transform.localScale.y;
             imageRect.width = originImageRect.width * transform.localScale.x;
 
-            if (!editing && Input.GetMouseButtonDown(0) && touchable(ModInput.GetMousePosInWorld(), transform.position, imageRect) && draggable) 
+            if (!editing && Input.GetMouseButtonDown(0) && Touchable(ModInput.GetMousePosInWorld(), transform.position, imageRect) && draggable) 
             {
-                startEdit = true;
+                originMousePos = transform.position - ModInput.GetMousePosInWorld();
                 editing = true;
             }
             else if(editing && Input.GetMouseButtonDown(0))
             {
+                originMousePos = Vector2.zero;
                 editing = false;
-                startEdit = false;
-                dPosMouse = Vector2.zero;
             }
 
-            if(!startEditProp && Input.GetMouseButtonDown(1) && touchable(ModInput.GetMousePosInWorld(), transform.position, imageRect))
+            if(Input.GetMouseButtonDown(1) && Touchable(ModInput.GetMousePosInWorld(), transform.position, imageRect))
             {
-                startEditProp = true;
+                tabGUI.Show();
             }
 
-            if(startEdit)
+            if(editing)
             {
-                dPosMouse = transform.position - ModInput.GetMousePosInWorld();
-                startEdit = false;
-            }
-
-            if(editing && !startEdit)
-            {
-                transform.position = new Vector2(ModInput.GetMousePosInWorld().x + dPosMouse.x, ModInput.GetMousePosInWorld().y + dPosMouse.y);
+                transform.position = new Vector2(ModInput.GetMousePosInWorld().x + originMousePos.x, ModInput.GetMousePosInWorld().y + originMousePos.y);
             }
         }
     }

@@ -1,0 +1,166 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4390260F-01CB-48C0-BE4D-F363D4867854}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ImageCoverMod</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ImageCoverMod</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Spaceflight Simulator\Spaceflight Simulator Game\Spaceflight Simulator_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DraggableImage.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="ModInput.cs" />
+    <Compile Include="ModProp.cs" />
+    <Compile Include="ModTabUI.cs" />
+    <Compile Include="ModUI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-merge-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\push-to-checkout.sample" />
+    <None Include=".git\hooks\sendemail-validate.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\main" />
+    <None Include=".git\logs\refs\remotes\origin\main" />
+    <None Include=".git\objects\03\aa2033cf4cd7fc7f7169855aff7148b813c753" />
+    <None Include=".git\objects\10\9aaf6e20301940d64be321532f9a2e536e192f" />
+    <None Include=".git\objects\15\293a26d3630af37771f1aab76c6459ebf463d0" />
+    <None Include=".git\objects\19\19585d4e1907f2d1242c251d609353be76fbed" />
+    <None Include=".git\objects\1a\4430ef9bd90e704a61a9eeb92d850fc78bfaf0" />
+    <None Include=".git\objects\26\24c9961185f47a5d0453136ca418425507f2d2" />
+    <None Include=".git\objects\39\27a4b5b9df6fa4d7ad233bb45dedddd1cd6ecc" />
+    <None Include=".git\objects\48\24791c3b13f435cbe11220571f4bfb1c2b49eb" />
+    <None Include=".git\objects\4a\6f2ae9e7a2837ab13260943b8ef135fc888109" />
+    <None Include=".git\objects\4c\47468c924c8bdf1d0b6f476fb4badae7da6a04" />
+    <None Include=".git\objects\57\f5731bdde90438063cbc4cd972c644a087a301" />
+    <None Include=".git\objects\60\0718154b417e4a7efa090a0c856051475d7f55" />
+    <None Include=".git\objects\60\1e8cf3ff5b1b7b9447e36a3c607c64f1651fa0" />
+    <None Include=".git\objects\62\7b127c5d2913ba280f43a075a79212e5075c30" />
+    <None Include=".git\objects\67\f33c580b6532f953deb90eb84d2c7b9b14148c" />
+    <None Include=".git\objects\6b\1514aae53a64e1904b1c04ee20cbf536984bec" />
+    <None Include=".git\objects\6c\7a476f176c79fadbc1268a4e1dbf31e0e16576" />
+    <None Include=".git\objects\75\608465a672d8dc7878eab23db8db30dd4ea062" />
+    <None Include=".git\objects\75\74eaf03e48372d652d1d8286dd22d0e9f12393" />
+    <None Include=".git\objects\7b\02d466abed0b9c5569b7f5c58d725573eeef90" />
+    <None Include=".git\objects\7e\a5d6965acaca7cf03f3455a4f1fc6d580739d1" />
+    <None Include=".git\objects\91\60e805b7b4220825a051a96cc7b4525324255e" />
+    <None Include=".git\objects\94\469f30e64164a2f13a0cfdccb81f0788918ca7" />
+    <None Include=".git\objects\9b\d6d3454d7c495284ae641aca32a3d35c808823" />
+    <None Include=".git\objects\9c\ad5d7a53d0d5b82304dd196f78ec81154df52d" />
+    <None Include=".git\objects\9d\052f2c9d47713c475ddc2da58d7685fccc2d08" />
+    <None Include=".git\objects\9f\ecdc491a04d9e5dd2f5df8426b04f3b1b959c2" />
+    <None Include=".git\objects\a5\f3cc443095dd0fa054bf56bfaea80a99393fbc" />
+    <None Include=".git\objects\ad\5dbab584d7fca3c74ba0d72b181ec706f71886" />
+    <None Include=".git\objects\b0\e227d3bd57a664e989c00d7594610c58a0548c" />
+    <None Include=".git\objects\bd\8c880051d980dbf95b9d60c8657daf37af4a38" />
+    <None Include=".git\objects\bd\de63faa74af4d49ef7c821f4e8b0b294479ada" />
+    <None Include=".git\objects\bd\ee961dd90beb3d90f8fb118084d895f269f9c0" />
+    <None Include=".git\objects\c1\ff139c497a6b6d7ad949422ce7fc8cfea53db2" />
+    <None Include=".git\objects\ca\52e15ebf4f04671e1584c49a67754a042808c5" />
+    <None Include=".git\objects\d0\a3c0ae9a412c41ed20e52fa6d56c6e20c95f29" />
+    <None Include=".git\objects\d8\1c525500b37132339727a733350425990bb432" />
+    <None Include=".git\objects\da\d8c0c6352d15d65c2e1737f633280b56521b56" />
+    <None Include=".git\objects\e0\26950577aee6e4830107e5ef4757b24b93a77b" />
+    <None Include=".git\objects\e0\f64e6713ab92edd86d1ab612592ea6a4688f34" />
+    <None Include=".git\objects\e8\bf499152b840c5609c5a06a85d9aebe384462d" />
+    <None Include=".git\objects\fd\1a78938deb263de3775b178c7228715213fff0" />
+    <None Include=".git\refs\heads\main" />
+    <None Include=".git\refs\remotes\origin\main" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\coverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include=".vs\ImageCoveeMod\v17\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
